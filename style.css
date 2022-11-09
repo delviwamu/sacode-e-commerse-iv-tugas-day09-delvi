@@ -1,182 +1,114 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'poppins' sans-serif;
-}
-
-body{
-    background: #2e364a;
-}
-
-.timeline{
-    position: relative;
-    max-width: 1200px;
-    margin: 100px auto;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
 }
 
 .container{
-    padding: 10px 50px;
-    position: relative;
-    width: 30%;
-    animation: movedown 1s linear forwards;
-    opacity: 0;
-    
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #1c00f2, #453f96);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
-
-@keyframes movedown{
-    0%{
-        opacity: 1;
-        transform: translateY(-30px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
-    }
+.chatbox{
+    background: #1d61c2;
+    width: 60%;
+    min-width: 250px;
+    display: flex;
 }
 
-
-.container:nth-child(1){
-    animation-delay: 0s;
+.col-1{
+   flex: 1;
 }
 
-.container:nth-child(2){
-    animation-delay: 1s;
+.col-2{
+    flex-basis: 150px;
+    background: #3874c9;
 }
 
-.container:nth-child(3){
-    animation-delay: 2s;
+.msg-row{
+    display: flex;
+    align-items: center;
+    margin: 40px;
 }
 
-.container:nth-child(4){
-    animation-delay: 3s;
+.msg-text{
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 8px;
+    flex-basis: 70%;
+    font-weight: 300;
 }
 
-.container:nth-child(5){
-    animation-delay: 4s;
+.msg-text h2{
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
-.container:nth-child(6){
-    animation-delay: 5s;
+.msg-img{
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 20px;
 }
 
-.text-box{
-    padding: 20px 30px;
-    background: #fff;
-    position: relative;
-    border-radius: 1px;
-    font-size: 12px;
-    
+.msg-row2{
+    justify-content: flex-end;
 }
 
-.left-container{
-    left: 1;
+.col-1 input{
+    border: 0;
+    outline: none;
+    padding: 20px 40px;
+    background: #3874c9;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #fff;
 }
 
-.right-container{
-    left: 38%;
+.col-2 h3{
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 400;
 }
 
-.container img{
-    position: absolute;
-    width: 40px;
-    border-radius: 50px;
-    right: -20px;
-    top: 32px;
-    z-index: 10;
+.col-2 ul{
+    list-style: none;
+    padding: 30px;
 }
 
-.right-container img{
-    left: -20px;
+.col-2 ul li{
+    padding: 5px 0;
 }
 
-.timeline::after{
+.col-2 ul li::before{
     content: '';
-    position: absolute;
-    width: 6px;
-    height: 100%;
-    background: #fff;
-    top: 0;
-    left: 38%;
-    margin-left: -3px;
-    z-index: -1;
-    animation: moveline 6s linear forwards;
-}
-
-
-@keyframes moveline {
-    0%{
-        height: 0;
-    }
-    100%{
-        height: 100%;
-    }
-    
-}
-
-.text-box h2{
-    font-weight: 600;
-}
-
-.text-box small{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
     display: inline-block;
-    margin-bottom: 15px;
+    margin-right: 10px;
 }
 
-.left-container-arrow{
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: 28px;
-    z-index: 1;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-left: 15px solid #fff;
-    right: -15px;
+.col-2 ul li.online::before{
+    background-color: greenyellow;
 }
 
-.right-container-arrow{
-    height: 0;
-    width: 0;
-    position: absolute;
-    top: 28px;
-    z-index: 1;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    border-right: 15px solid #fff;
-    left: -15px;
+.col-2 ul li.offline::before{
+    background-color: tomato;
 }
 
-@media screen and(max-width: 600px) {
-    .timeline{
-        margin: 50px auto;
-    }
-    .timeline::after{
-        left: 31;
-    }
-    .container{
-        width: 100%;
-        padding-left: 80PX;
-        padding-right: 25PX;
-    }
-    .text-box{
-        font-size: 13PX;
-    }
-    .text-box small{
-        margin-bottom: 10px;
-    }
-    .right-container{
-        left: 0;
-    }
-
-    .left-container img, .right-container img{
-        left: 10px;
-    }
-
-    .left-container-arrow, .right-container-arrow{
-        border-right: 15px solid #fff;
-        border-left: 0;
-        left: -15px;
-    }
-    
+.col-2 ul li.busy::before{
+    background-color: yellow;
 }
+
